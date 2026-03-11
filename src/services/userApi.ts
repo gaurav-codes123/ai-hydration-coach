@@ -7,8 +7,7 @@
  *  - Hydration history fetching
  *  - Prediction saving
  */
-const BACKEND_URL: string = import.meta.env.VITE_BACKEND_URL ?? "http://localhost:8000";
-// ─── Types ────────────────────────────────────────────────────────────────────
+const BACKEND_URL: string = import.meta.env.VITE_API_URL ?? "http://localhost:8000";// ─── Types ────────────────────────────────────────────────────────────────────
 export interface DBUser {
   id: string;
   name: string;

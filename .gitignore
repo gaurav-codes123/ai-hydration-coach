@@ -7,10 +7,29 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
+# Dependencies
+node_modules/
+
+# Build output
 dist
 dist-ssr
+
+# Environment files — NEVER commit these
+.env
+.env.local
+.env.production
 *.local
+
+# Backend
+backend/venv/
+backend/__pycache__/
+backend/.env
+backend/model/hydration_model.pkl
+backend/model/model_info.json
+
+# Python cache
+*.pyc
+__pycache__/
 
 # Editor directories and files
 .vscode/*

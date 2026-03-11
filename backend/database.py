@@ -15,13 +15,22 @@ DATABASE_URL = os.getenv(
     "DATABASE_URL",
     "postgresql://hydration_user:hydration123@localhost:5432/hydration_db"
 )
+# Neon PostgreSQL requires SSL — fix the URL scheme if needed
+# Render / Neon gives "postgres://" but SQLAlchemy needs "postgresql://"
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+# Check if SSL is needed (Neon always needs it)
+connect_args = {}
+if "neon.tech" in DATABASE_URL or "sslmode=require" in DATABASE_URL:
+    connect_args = {"sslmode": "require"}
 # Create SQLAlchemy engine
 engine = create_engine(
     DATABASE_URL,
     pool_pre_ping=True,       # Reconnect on dropped connections
-    pool_size=10,             # Max 10 connections
-    max_overflow=20,          # Extra 20 overflow connections
+    pool_size=5,              # Neon free tier — keep lower
+    max_overflow=10,
     echo=False,               # Set True to log all SQL queries
+    connect_args=connect_args,
 )
 # Session factory
 SessionLocal = sessionmaker(

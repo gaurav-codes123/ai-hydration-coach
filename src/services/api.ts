@@ -33,8 +33,7 @@ export interface HydrationPlan {
 // ─── Backend URL ────────────────────────────────────────────────────────────
 // Change this to your deployed backend URL in production.
 // e.g. "https://hydration-api.onrender.com"
-const BACKEND_URL: string = import.meta.env.VITE_BACKEND_URL ?? "http://localhost:8000";// ─────────────────────────────────────────────
-// Main prediction function
+const BACKEND_URL: string = import.meta.env.VITE_API_URL ?? "http://localhost:8000";// Main prediction function
 // ─────────────────────────────────────────────
 export async function predictHydration(
   profile: UserProfile,

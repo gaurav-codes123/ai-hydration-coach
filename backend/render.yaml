@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: ai-hydration-coach-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt && python3 train_model.py
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        sync: false          # Set this manually in Render dashboard
+      - key: ALLOWED_ORIGINS
+        sync: false          # Set to your Vercel URL after deploy
+      - key: PYTHON_VERSION
+        value: 3.11.0
