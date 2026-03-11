@@ -1,0 +1,28 @@
+{
+  "features": [
+    "age",
+    "weight",
+    "gender",
+    "activity_level",
+    "temperature",
+    "humidity"
+  ],
+  "n_samples": 5000,
+  "test_mae": 0.0796,
+  "test_r2": 0.9896,
+  "cv_r2_mean": 0.9877,
+  "cv_r2_std": 0.0006,
+  "feature_importances": {
+    "age": 0.0082,
+    "weight": 0.7301,
+    "gender": 0.0107,
+    "activity_level": 0.1752,
+    "temperature": 0.0718,
+    "humidity": 0.0041
+  },
+  "model_type": "GradientBoostingRegressor",
+  "output_range": [
+    1.5,
+    5.0
+  ]
+}
