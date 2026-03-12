@@ -26,7 +26,7 @@ app = FastAPI(
 # ─────────────────────────────────────────────
 raw_origins = os.getenv(
     "ALLOWED_ORIGINS",
-    "http://localhost:5173,http://localhost:3000"
+    "http://localhost:5173,http://localhost:3000,https://ai-hydration-coach-nu.vercel.app/"
 )
 ALLOWED_ORIGINS = [o.strip() for o in raw_origins.split(",") if o.strip()]
 app.add_middleware(
