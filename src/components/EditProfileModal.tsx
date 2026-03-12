@@ -59,7 +59,7 @@ export default function EditProfileModal({
     setError(null);
     try {
       // ── 1. Update PostgreSQL via PUT /users/{id} ──────────────────────────
-      const res = await fetch(`http://localhost:8000/users/${userId}`, {
+        const res = await fetch(`https://ai-hydration-coach-api.onrender.com/users/${userId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
