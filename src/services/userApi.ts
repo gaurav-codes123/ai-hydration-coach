@@ -57,7 +57,7 @@ export interface SavedPrediction {
 async function apiFetch<T>(
   path: string,
   options?: RequestInit,
-  timeoutMs = 8000
+  timeoutMs = 60000
 ): Promise<T> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
